@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>群益期貨飛虎團隊｜Omnichannel Division Careers & Services</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- SEO basics -->
+  <meta name="description" content="群益期貨飛虎團隊：關於我們、六大服務、群益獨家、開戶方法、交易教學、交易平台、國內與海外期貨資訊、FAQ。">
+  <meta property="og:title" content="群益期貨飛虎團隊｜專業期權服務">
+  <meta property="og:description" content="關於我們、六大服務、群益獨家、開戶方法、交易教學、平台、資訊、FAQ 一站整合。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/og-cover.jpg">
+  <meta name="theme-color" content="#000000">
+
+  <style>
+    :root {
+      --brand-yellow: #FFD400;
+      --text-gray: #E5E7EB;
+      --card-bg: #1F2937;
+      --card-border: #374151;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter','Noto Sans TC',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:#000; color: var(--text-gray); }
+    .brand-yellow{ color: var(--brand-yellow); }
+    .bg-brand-yellow{ background: var(--brand-yellow); }
+    .header-nav a{ padding: 1rem .5rem; border-bottom:2px solid transparent; color:#D1D5DB; transition:.25s; }
+    .header-nav a:hover{ color:#fff; border-bottom-color: var(--brand-yellow); }
+    .header-nav a[aria-current="page"]{ color: var(--brand-yellow); border-bottom-color: var(--brand-yellow); }
+    .card{ background: var(--card-bg); border:1px solid var(--card-border); transition: transform .25s, border-color .25s; }
+    .card:hover{ transform: translateY(-4px); border-color: var(--brand-yellow); }
+
+    /* Tabs */
+    .tab-button{ border-bottom:2px solid transparent; transition: .2s; }
+    .tab-button.active{ color: var(--brand-yellow); border-bottom-color: var(--brand-yellow); }
+    .tab-content{ display:none; }
+    .tab-content.active{ display:block; }
+
+    /* Timeline */
+    .timeline{ position: relative; padding-left: 2.5rem; border-left: 2px solid #4B5563; }
+    .timeline-item{ position: relative; margin-bottom: 1.25rem; }
+    .timeline-dot{ position:absolute; left:-2.5rem; top:.15rem; transform: translateX(-50%); width:1.1rem; height:1.1rem; border-radius:9999px; background:#4B5563; border:2px solid var(--brand-yellow); display:flex; align-items:center; justify-content:center; }
+    .timeline-dot-inner{ width:.45rem; height:.45rem; border-radius:9999px; background: var(--brand-yellow); }
+
+    /* Modal */
+    .modal-overlay{ position:fixed; inset:0; background: rgba(2,6,23,.6); display:none; align-items:center; justify-content:center; z-index:60; }
+    .modal-overlay.active{ display:flex; }
+    .modal-card{ background:#0B1220; border:1px solid #1f2937; border-radius: 14px; max-width: 720px; width: calc(100% - 2rem); box-shadow: 0 20px 60px rgba(0,0,0,.45); }
+
+    .wrap{ max-width: 1200px; margin-inline:auto; padding-inline: 1rem; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-black/80 sticky top-0 z-50 backdrop-blur-sm">
+    <div class="wrap">
+      <div class="flex items-center justify-between h-16">
+        <a href="/home" data-route="home" class="flex items-center space-x-3">
+          <img src="images/logo.png" alt="飛虎團隊 Logo" class="h-10 w-10 rounded" onerror="this.src='images/placeholder-logo.png'">
+          <div>
+            <span class="text-base font-bold brand-yellow block">群益期貨 飛虎團隊</span>
+            <span class="text-xs text-gray-400 block">Flying Tiger Team</span>
+          </div>
+        </a>
+        <nav class="hidden md:block header-nav">
+          <div class="flex items-center justify-center space-x-4">
+            <a href="/home" data-route="home">首頁</a>
+            <a href="/about" data-route="about">關於我們</a>
+            <a href="/open-account" data-route="open-account">開戶方法</a>
+            <a href="/tutorial" data-route="tutorial">期貨交易教學</a>
+            <a href="/platform" data-route="platform">交易平台</a>
+            <a href="/domestic-info" data-route="domestic-info">國內期貨資訊</a>
+            <a href="/foreign-info" data-route="foreign-info">國外期貨資訊</a>
+            <a href="/faq" data-route="faq">FAQ</a>
+          </div>
+        </nav>
+        <div class="hidden md:flex items-center space-x-3">
+          <a href="#" class="bg-brand-yellow text-black font-bold py-2 px-4 rounded-lg text-sm">立即開戶</a>
+          <a href="#" class="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-lg text-sm flex items-center">
+            <i data-feather="message-circle" class="h-4 w-4 mr-2"></i>LINE專人
+          </a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden rounded p-2 text-gray-300 hover:text-white hover:bg-gray-700">
+          <i data-feather="menu"></i><span class="sr-only">Open menu</span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden border-t border-gray-800">
+      <div class="wrap py-2 grid grid-cols-1">
+        <a href="/home"   data-route="home"         class="py-2">首頁</a>
+        <a href="/about"  data-route="about"        class="py-2">關於我們</a>
+        <a href="/open-account" data-route="open-account" class="py-2">開戶方法</a>
+        <a href="/tutorial" data-route="tutorial"   class="py-2">期貨交易教學</a>
+        <a href="/platform" data-route="platform"   class="py-2">交易平台</a>
+        <a href="/domestic-info" data-route="domestic-info" class="py-2">國內期貨資訊</a>
+        <a href="/foreign-info" data-route="foreign-info" class="py-2">國外期貨資訊</a>
+        <a href="/faq"     data-route="faq"         class="py-2">FAQ</a>
+        <div class="flex items-center gap-3 py-3">
+          <a href="#" class="w-full text-center bg-brand-yellow text-black font-bold py-2 px-4 rounded-lg text-sm">立即開戶</a>
+          <a href="#" class="w-full text-center bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-lg text-sm flex items-center justify-center">
+            <i data-feather="message-circle" class="h-4 w-4 mr-2"></i>LINE專人
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main id="app" class="wrap py-10 min-h-[60vh]"></main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-gray-800 mt-12">
+    <div class="wrap py-8 text-center text-xs text-gray-400 space-y-3">
+      <p class="font-bold text-yellow-500">
+        ＊警語＊ 期貨交易具有風險，交易人應先評估自身資金及所能負擔之風險，過去績效或未來預期的表現不可作為日後績效之保證。
+      </p>
+      <div class="space-y-1">
+        <p>公司名稱：群益期貨股份有限公司</p>
+        <p>公司地址：台北市松山區民生東路三段156號7F之6</p>
+        <p>公司電話：(02)2700-2888</p>
+        <p>許可字號：114年金管期總字第006號</p>
+      </div>
+      <p>&copy; 2025 群益期貨飛虎團隊. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Templates -->
+  <template id="tpl-home">
+    <div class="space-y-14">
+      <!-- Hero -->
+      <section class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="space-y-6 text-center md:text-left">
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+            <span class="block">專業團隊，引領您</span>
+            <span class="block brand-yellow">馳騁期貨市場</span>
+          </h1>
+          <p class="text-lg text-gray-300">由頂尖分析師組成的飛虎團隊，提供即時市場資訊、穩健策略與貼心服務。</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <a href="#" class="bg-brand-yellow text-black font-bold py-3 px-6 rounded-lg text-lg">立即開戶，掌握先機</a>
+            <a href="#" class="bg-gray-700 text-white font-bold py-3 px-6 rounded-lg text-lg">聯繫專人諮詢</a>
+          </div>
+        </div>
+        <div>
+          <img src="images/hero.jpg" alt="飛虎團隊形象" class="rounded-xl shadow-2xl" loading="eager" fetchpriority="high" onerror="this.src='images/placeholder-hero.jpg'">
+        </div>
+      </section>
+
+      <!-- 三功能框 -->
+      <section class="grid sm:grid-cols-3 gap-6 text-center">
+        <div class="card p-6 rounded-lg">
+          <i data-feather="message-circle" class="h-10 w-10 mx-auto mb-3 brand-yellow"></i>
+          <h3 class="text-lg font-semibold">加 LINE 專人</h3>
+          <p class="text-sm text-gray-400">一對一即時回答</p>
+        </div>
+        <div class="card p-6 rounded-lg">
+          <i data-feather="instagram" class="h-10 w-10 mx-auto mb-3 brand-yellow"></i>
+          <h3 class="text-lg font-semibold">IG 粉絲團</h3>
+          <p class="text-sm text-gray-400">每日市場快訊</p>
+        </div>
+        <div class="card p-6 rounded-lg">
+          <i data-feather="youtube" class="h-10 w-10 mx-auto mb-3 brand-yellow"></i>
+          <h3 class="text-lg font-semibold">YouTube 頻道</h3>
+          <p class="text-sm text-gray-400">每週投資講座</p>
+        </div>
+      </section>
+
+      <!-- 導覽卡 -->
+      <section class="grid md:grid-cols-3 gap-6">
+        <a href="/about#team" data-route="about" class="card p-8 rounded-lg block text-center">
+          <h3 class="text-2xl font-bold mb-2">關於團隊</h3>
+          <p class="text-gray-400">了解我們的使命與優勢</p>
+        </a>
+        <a href="/about#services" data-route="about" class="card p-8 rounded-lg block text-center">
+          <h3 class="text-2xl font-bold mb-2">六大服務</h3>
+          <p class="text-gray-400">我們提供的全方位支援</p>
+        </a>
+        <a href="/about#exclusive" data-route="about" class="card p-8 rounded-lg block text-center">
+          <h3 class="text-2xl font-bold mb-2">群益獨家限定</h3>
+          <p class="text-gray-400">盤中策略與程式交易</p>
+        </a>
+      </section>
+
+      <!-- 雙 CTA -->
+      <section class="bg-gray-800 rounded-lg p-8 text-center">
+        <h2 class="text-3xl font-bold mb-2">享受前所未有的期權專業服務</h2>
+        <p class="text-gray-300 mb-6">立即行動，讓飛虎團隊成為您最強後盾</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#" class="bg-brand-yellow text-black font-bold py-3 px-6 rounded-lg text-lg">立即開戶</a>
+          <a href="#" class="bg-green-500 hover:bg-green-400 text-white font-bold py-3 px-6 rounded-lg text-lg flex items-center justify-center">
+            <i data-feather="message-circle" class="h-5 w-5 mr-2"></i>專人諮詢 LINE
+          </a>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <template id="tpl-about">
+    <div class="space-y-16">
+      <h1 class="text-4xl font-bold text-center brand-yellow">關於我們</h1>
+      <!-- 2.1 關於團隊 -->
+      <section id="team" class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="space-y-4">
+          <h2 class="text-3xl font-bold">我們的使命</h2>
+          <p class="text-gray-300">我們致力於提供專業且即時的期貨交易支援，協助客戶在變動市場中穩健操作。</p>
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="card p-4 rounded"><h4 class="font-semibold text-center brand-yellow">深入研究</h4></div>
+            <div class="card p-4 rounded"><h4 class="font-semibold text-center brand-yellow">貼心服務</h4></div>
+            <div class="card p-4 rounded"><h4 class="font-semibold text-center brand-yellow">專業教育</h4></div>
+            <div class="card p-4 rounded"><h4 class="font-semibold text-center brand-yellow">嚴謹風控</h4></div>
+          </div>
+        </div>
+        <div><img src="images/about-team.jpg" alt="團隊合作" class="rounded-lg" loading="lazy" onerror="this.src='images/placeholder-1.jpg'"></div>
+      </section>
+
+      <!-- 2.2 六大服務 -->
+      <section id="services" class="text-center">
+        <h2 class="text-3xl font-bold mb-8">飛虎「六大服務」</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="services-grid"></div>
+      </section>
+
+      <!-- 2.3 群益獨家限定 -->
+      <section id="exclusive" class="text-center">
+        <h2 class="text-3xl font-bold mb-8">群益獨家限定</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="card p-6 rounded">
+            <h3 class="text-2xl font-semibold mb-4">盤中策略</h3>
+            <p class="text-gray-400">開盤缺口、數據前後、台美連動等情境腳本與應對策略。</p>
+          </div>
+          <div class="card p-6 rounded">
+            <h3 class="text-2xl font-semibold mb-4">程式交易</h3>
+            <p class="text-gray-400">趨勢／均值／波動等多元策略，附回測觀察與申請流程。</p>
+          </div>
+        </div>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="#" class="bg-brand-yellow text-black font-bold py-2 px-5 rounded">立即開戶</a>
+          <a href="#" class="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-5 rounded flex items-center justify-center">
+            <i data-feather="message-circle" class="h-4 w-4 mr-2"></i>LINE 專人
+          </a>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <template id="tpl-open">
+    <div class="space-y-14">
+      <h1 class="text-4xl font-bold text-center brand-yellow">開戶方法</h1>
+      <!-- 必備資料 -->
+      <section class="bg-gray-800 rounded-lg p-6">
+        <h2 class="text-2xl font-bold text-center mb-6">開戶必備資料</h2>
+        <div class="grid sm:grid-cols-3 gap-6 text-center">
+          <div class="flex flex-col items-center">
+            <i data-feather="credit-card" class="h-12 w-12 mb-3 brand-yellow"></i>
+            <h3 class="font-semibold">身分證</h3><p class="text-sm text-gray-400">(需年滿20歲)</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <i data-feather="user-check" class="h-12 w-12 mb-3 brand-yellow"></i>
+            <h3 class="font-semibold">第二證件</h3><p class="text-sm text-gray-400">(駕照/健保卡/護照)</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <i data-feather="book" class="h-12 w-12 mb-3 brand-yellow"></i>
+            <h3 class="font-semibold">台幣/外幣存摺</h3><p class="text-sm text-gray-400">(外幣可不約定)</p>
+          </div>
+        </div>
+      </section>
+      <!-- Tabs -->
+      <section>
+        <div class="border-b border-gray-700 mb-6">
+          <nav id="tabs" class="flex justify-center -mb-px space-x-6" aria-label="Tabs">
+            <button class="tab-button py-3 px-1 font-medium text-lg active" data-tab="mobile">手機線上開戶</button>
+            <button class="tab-button py-3 px-1 font-medium text-lg" data-tab="desktop">電腦線上開戶</button>
+            <button class="tab-button py-3 px-1 font-medium text-lg" data-tab="inperson">臨櫃開戶</button>
+          </nav>
+        </div>
+        <div id="tab-panels">
+          <div id="tab-mobile" class="tab-content active">
+            <h3 class="text-xl font-bold text-center mb-6 brand-yellow">最推薦！使用手機，在家就能完成</h3>
+            <div class="max-w-2xl mx-auto">
+              <div class="timeline">
+                <div class="timeline-item"><div class="timeline-dot"><div class="timeline-dot-inner"></div></div><h4 class="font-bold">下載 App</h4><p class="text-gray-400">下載「群益線上開戶」App。</p></div>
+                <div class="timeline-item"><div class="timeline-dot"><div class="timeline-dot-inner"></div></div><h4 class="font-bold">選擇線上開戶</h4><p class="text-gray-400">開啟 App 並選擇「線上開戶」。</p></div>
+                <div class="timeline-item"><div class="timeline-dot"><div class="timeline-dot-inner"></div></div><h4 class="font-bold">上傳證件/存摺</h4><p class="text-gray-400">依指示拍攝並上傳雙證件與存摺封面。</p></div>
+                <div class="timeline-item"><div class="timeline-dot"><div class="timeline-dot-inner"></div></div><h4 class="font-bold">填寫資料</h4><p class="text-gray-400">填寫住址、資產與交易經驗等。</p></div>
+                <div class="timeline-item"><div class="timeline-dot"><div class="timeline-dot-inner"></div></div><h4 class="font-bold">影像比對與簽章</h4><p class="text-gray-400">進行人臉辨識與線上簽署。</p></div>
+                <div class="timeline-item"><div class="timeline-dot"><div class="timeline-dot-inner"></div></div><h4 class="font-bold">送出並等待確認</h4><p class="text-gray-400">送出後，我們將致電確認資料。</p></div>
+                <div class="timeline-item"><div class="timeline-dot"><div class="timeline-dot-inner"></div></div><h4 class="font-bold">App 領取開戶文件</h4><p class="text-gray-400">審核通過後，在 App 領取文件。</p></div>
+              </div>
+            </div>
+          </div>
+          <div id="tab-desktop" class="tab-content text-center">
+            <div class="card max-w-md mx-auto p-8">
+              <i data-feather="alert-triangle" class="h-12 w-12 mx-auto mb-4 text-yellow-500"></i>
+              <h3 class="text-xl font-bold mb-2">溫馨提示</h3>
+              <p class="text-gray-300">電腦開戶流程較繁瑣，建議改用手機 App 更快更順。</p>
+            </div>
+          </div>
+          <div id="tab-inperson" class="tab-content text-center">
+            <div class="card max-w-md mx-auto p-8">
+              <i data-feather="info" class="h-12 w-12 mx-auto mb-4 text-blue-500"></i>
+              <h3 class="text-xl font-bold mb-2">臨櫃辦理</h3>
+              <p class="text-gray-300">攜帶上述文件正本至任一分公司，流程約 20–30 分鐘。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 附錄 -->
+      <section class="text-center">
+        <h2 class="text-2xl font-bold mb-6">附錄：領取開戶文件 SOP</h2>
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div class="card p-6"><h3 class="text-lg font-semibold mb-2">1. 查詢進度</h3><p class="text-sm text-gray-400">在 App 查詢開戶進度。</p></div>
+          <div class="card p-6"><h3 class="text-lg font-semibold mb-2">2. Email 驗證</h3><p class="text-sm text-gray-400">收到通知後輸入驗證碼。</p></div>
+          <div class="card p-6"><h3 class="text-lg font-semibold mb-2">3. 領取成功</h3><p class="text-sm text-gray-400">成功領取電子開戶文件。</p></div>
+        </div>
+      </section>
+    </div>
+  </template>
+
+  <template id="tpl-tutorial">
+    <div class="space-y-10">
+      <h1 class="text-4xl font-bold text-center brand-yellow">期貨交易教學</h1>
+      <section class="text-center text-gray-300">此頁面正在建置中...</section>
+    </div>
+  </template>
+
+  <template id="tpl-platform">
+    <div class="space-y-10">
+      <h1 class="text-4xl font-bold text-center brand-yellow">交易平台</h1>
+      <section class="text-center text-gray-300">此頁面正在建置中...</section>
+    </div>
+  </template>
+
+  <template id="tpl-domestic">
+    <div class="space-y-10">
+      <h1 class="text-4xl font-bold text-center brand-yellow">國內期貨資訊</h1>
+      <section class="text-center text-gray-300">此頁面正在建置中...</section>
+    </div>
+  </template>
+
+  <template id="tpl-foreign">
+    <div class="space-y-10">
+      <h1 class="text-4xl font-bold text-center brand-yellow">國外期貨資訊</h1>
+      <section class="text-center text-gray-300">此頁面正在建置中...</section>
+    </div>
+  </template>
+
+  <template id="tpl-faq">
+    <div class="space-y-10">
+      <h1 class="text-4xl font-bold text-center brand-yellow">FAQ 常見問題</h1>
+      <section class="text-center text-gray-300">此頁面正在建置中...</section>
+    </div>
+  </template>
+
+  <template id="tpl-404">
+    <div class="text-center py-16">
+      <h1 class="text-6xl font-extrabold brand-yellow">404</h1>
+      <p class="text-2xl mt-2">頁面不存在</p>
+      <a href="/home" data-route="home" class="mt-6 inline-block bg-brand-yellow text-black font-bold py-3 px-6 rounded-lg">返回首頁</a>
+    </div>
+  </template>
+
+  <!-- Services Modal -->
+  <div id="services-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-card p-6 relative">
+      <button id="services-close" class="absolute top-3 right-3 rounded p-2 hover:bg-gray-800" aria-label="關閉">
+        <i data-feather="x"></i>
+      </button>
+      <div id="services-modal-body" class="space-y-3"><!-- filled by JS --></div>
+    </div>
+  </div>
+
+  <script>
+    // Helpers
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    // Mobile menu + autoclose
+    const btn = $('#mobile-menu-button');
+    const mm  = $('#mobile-menu');
+    btn?.addEventListener('click', (e)=>{ e.stopPropagation(); mm.classList.toggle('hidden'); });
+    document.addEventListener('click',(e)=>{ if(!mm) return; if(!mm.classList.contains('hidden')){ const inside = mm.contains(e.target) || btn.contains(e.target); if(!inside) mm.classList.add('hidden'); }});
+
+    // Templates map
+    const TPL = {
+      home:    $('#tpl-home').innerHTML,
+      about:   $('#tpl-about').innerHTML,
+      'open-account': $('#tpl-open').innerHTML,
+      tutorial: $('#tpl-tutorial').innerHTML,
+      platform: $('#tpl-platform').innerHTML,
+      'domestic-info': $('#tpl-domestic').innerHTML,
+      'foreign-info':  $('#tpl-foreign').innerHTML,
+      faq:     $('#tpl-faq').innerHTML,
+      '404':   $('#tpl-404').innerHTML,
+    };
+
+    // Services data (grid + modal)
+    const SERVICES = [
+      { title:'市場關注商品推播', icon:'bell', desc:'即時推播重要商品資訊，不錯過任何交易機會。' },
+      { title:'總經專家每日解析', icon:'bar-chart-2', desc:'每日宏觀經濟分析，掌握市場大局。' },
+      { title:'線上專人交易諮詢', icon:'message-square', desc:'隨時提供線上專人諮詢，解答交易疑問。' },
+      { title:'全球商品交易策略', icon:'globe', desc:'提供全球主要商品交易策略建議。' },
+      { title:'客製化交易規劃', icon:'edit', desc:'依您的需求與風險承受度打造專屬計畫。' },
+      { title:'每週專業投資講座', icon:'youtube', desc:'定期直播講座，由資深分析師分享觀點。' },
+    ];
+
+    // Renderers
+    function renderServicesGrid(){
+      const grid = $('#services-grid');
+      if(!grid) return;
+      grid.innerHTML = SERVICES.map((s,idx)=>`
+        <button class="card p-6 rounded text-left w-full" data-service="${idx}">
+          <i data-feather="${s.icon}" class="h-10 w-10 mb-3 brand-yellow"></i>
+          <h3 class="text-lg font-semibold">${s.title}</h3>
+          <p class="text-sm text-gray-400 mt-2">${s.desc}</p>
+        </button>
+      `).join('');
+      feather.replace();
+      grid.addEventListener('click', (e)=>{
+        const btn = e.target.closest('[data-service]');
+        if(!btn) return;
+        const i = +btn.dataset.service;
+        openServiceModal(SERVICES[i]);
+      });
+    }
+
+    // Tabs in open-account
+    function setupOpenTabs(){
+      const tabs = $('#tabs');
+      if(!tabs) return;
+      const buttons = $$('.tab-button', tabs);
+      const panels  = $$('#tab-panels .tab-content');
+      buttons.forEach(b=>b.addEventListener('click', ()=>{
+        buttons.forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');
+        const key = b.dataset.tab;
+        panels.forEach(p=>p.classList.toggle('active', p.id === 'tab-'+key));
+      }));
+    }
+
+    // Services modal
+    const modal = $('#services-modal');
+    const modalBody = $('#services-modal-body');
+    const modalClose = $('#services-close');
+    function openServiceModal(s){
+      modalBody.innerHTML = `
+        <h3 class="text-xl font-bold">${s.title}</h3>
+        <p class="text-gray-300">${s.desc}</p>
+        <div class="mt-4 text-right">
+          <a href="#" class="bg-brand-yellow text-black font-bold py-2 px-4 rounded">了解更多／聯繫我們</a>
+        </div>
+      `;
+      feather.replace();
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){ modal.classList.remove('active'); modal.setAttribute('aria-hidden','true'); }
+    modalClose?.addEventListener('click', closeModal);
+    modal?.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown',(e)=>{ if(e.key === 'Escape') closeModal(); });
+
+    // Router (History API, clean URLs)
+    const app = $('#app');
+    function basePath(){ return location.pathname.replace(/[^/]*$/, ''); } // /repo/ 作為 base
+    const ROUTES = { home:'home', about:'about', 'open-account':'open-account', tutorial:'tutorial', platform:'platform', 'domestic-info':'domestic-info', 'foreign-info':'foreign-info', faq:'faq' };
+
+    function setActiveNav(seg){
+      $$('.header-nav [data-route]').forEach(a=>a.removeAttribute('aria-current'));
+      $$('.header-nav [data-route="'+seg+'"]').forEach(a=>a.setAttribute('aria-current','page'));
+    }
+    function scrollToHash(hash){ if(!hash) return; const el = document.getElementById(hash); if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); } }
+    function render(seg, hash){
+      const key = ROUTES[seg] || '404';
+      app.innerHTML = TPL[key];
+      feather.replace();
+      setActiveNav(seg);
+      if(seg === 'about'){ renderServicesGrid(); }
+      if(seg === 'open-account'){ setupOpenTabs(); }
+      if(hash) scrollToHash(hash);
+      if(mm && !mm.classList.contains('hidden')) mm.classList.add('hidden');
+      if(!hash) window.scrollTo(0,0);
+    }
+    function parsePath(pathname){
+      const base = basePath();
+      const sub = pathname.slice(base.length).replace(/^\/+|\/+$/g,'');
+      return sub || 'home';
+    }
+    function navigateTo(seg, hash, replace=false){
+      const url = basePath() + (seg === 'home' ? '' : seg) + (hash ? '#'+hash : '');
+      (replace ? history.replaceState : history.pushState).call(history, {seg, hash}, '', url);
+      render(seg, hash);
+    }
+
+    // Intercept internal links
+    document.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(!a) return;
+      if(a.dataset.route){
+        e.preventDefault();
+        navigateTo(a.dataset.route, (a.hash||'').replace(/^#/, ''));
+      } else if(a.getAttribute('href') && a.getAttribute('href').startsWith('/')){
+        e.preventDefault();
+        const url = new URL(a.href);
+        const seg = parsePath(url.pathname);
+        navigateTo(seg, url.hash.replace(/^#/,'') || '');
+      }
+    });
+
+    // Initial
+    (function init(){
+      const seg = parsePath(location.pathname);
+      const hash = location.hash.replace(/^#/,'');
+      navigateTo(seg, hash, true);
+    })();
+
+    // Back/forward
+    window.addEventListener('popstate', ()=>{
+      const seg = parsePath(location.pathname);
+      const hash = location.hash.replace(/^#/,'');
+      render(seg, hash);
+    });
+
+    // Icons
+    feather.replace();
+  </script>
+</body>
+</html>
